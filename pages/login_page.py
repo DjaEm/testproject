@@ -13,7 +13,6 @@ class LoginPage(BasePage):
         # реализуйте проверку на корректный url адрес
         assert "login" in self.browser.current_url, "Should be login in url"
 
-
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина
         assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "Should be login form"
