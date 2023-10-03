@@ -2,6 +2,7 @@ import time
 from .pages.product_page import ProductPage
 import pytest
 from .pages.locators import ProductPageLocators
+from .pages.basket_page import BasketPage
 
 
 @pytest.mark.parametrize('link', [pytest.param(i, marks=pytest.mark.xfail) for i in
@@ -57,3 +58,13 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_basket_page()
+    page = BasketPage(browser, browser.current_url)
+    page.should_not_be_basket_items()
+    page.should_be_your_basket_is_empty_message()
