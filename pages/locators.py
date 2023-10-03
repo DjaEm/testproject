@@ -16,3 +16,4 @@ class ProductPageLocators:
     NAME_IN_MESSAGE = (By.CSS_SELECTOR, ".alertinner strong")
     PRICE_IN_MESSAGE = (By.CSS_SELECTOR, "#messages .alert:nth-child(3) strong")
     PRICE = (By.CSS_SELECTOR, "p.price_color")
+    SUCCESS_MESSAGE = (By.CLASS_NAME, "alert-success")
