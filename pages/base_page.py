@@ -1,3 +1,4 @@
+import pytest
 import selenium.common.exceptions
 from selenium.common.exceptions import NoAlertPresentException
 import math
@@ -62,3 +63,7 @@ class BasePage:
 
     def go_to_basket_page(self):
         self.browser.find_element(*BasePageLocators.CHECK_BASKET).click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
