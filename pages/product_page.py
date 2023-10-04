@@ -18,3 +18,6 @@ class ProductPage(BasePage):
         price = self.browser.find_element(*ProductPageLocators.PRICE).text
         print(price, price_in_message)
         assert price == price_in_message, "Prices are not the same"
+
+    def should_not_be_success_message(self, page):
+        assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE) is True, "Success message shouldn't be"
